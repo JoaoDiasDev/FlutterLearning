@@ -2,11 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Uri request = Uri(
-    scheme: 'https',
-    host: 'api.hgbrasil.com',
-    path: '/finance',
-    queryParameters: {'key': '74bd8d80'});
+Uri request =
+    Uri(scheme: 'https', host: 'genericapi.joaodiasdev.com', path: '/api/Coin');
 
 void main() async {
   runApp(
@@ -26,7 +23,7 @@ void main() async {
   );
 }
 
-Future<Map> getData() async {
+Future<List<dynamic>> getData() async {
   http.Response response = await http.get(request);
   return jsonDecode(response.body);
 }
@@ -91,7 +88,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.amber,
         centerTitle: true,
       ),
-      body: FutureBuilder<Map>(
+      body: FutureBuilder<List<dynamic>>(
         future: getData(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
@@ -114,8 +111,8 @@ class _HomeState extends State<Home> {
                   ),
                 );
               } else {
-                dolar = snapshot.data!['results']['currencies']['USD']['buy'];
-                euro = snapshot.data!['results']['currencies']['EUR']['buy'];
+                dolar = snapshot.data![1][2];
+                euro = snapshot.data![2][2];
 
                 return SingleChildScrollView(
                   padding: const EdgeInsets.all(10.0),
