@@ -2,9 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Uri request =
-    Uri(scheme: 'https', host: 'genericapi.joaodiasdev.com', path: '/api/Coin');
-
 void main() async {
   runApp(
     MaterialApp(
@@ -24,7 +21,8 @@ void main() async {
 }
 
 Future<List<dynamic>> getData() async {
-  http.Response response = await http.get(request);
+  http.Response response =
+      await http.get(Uri.parse("https://genericapi.joaodiasdev.com/api/coin"));
   return jsonDecode(response.body);
 }
 
