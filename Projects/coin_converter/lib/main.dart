@@ -111,9 +111,12 @@ class _HomeState extends State<Home> {
                   ),
                 );
               } else {
-                dolar = snapshot.data![1][2];
-                euro = snapshot.data![2][2];
-
+                if (snapshot.data != null) {
+                  dolar = snapshot.data![1]['buyPrice'];
+                  euro = snapshot.data![2]['buyPrice'];
+                } else {
+                  getData();
+                }
                 return SingleChildScrollView(
                   padding: const EdgeInsets.all(10.0),
                   child: Column(
