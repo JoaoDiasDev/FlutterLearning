@@ -53,16 +53,21 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: "Pesquise aqui",
-                labelStyle: TextStyle(color: Colors.white),
-                enabledBorder: OutlineInputBorder(
+                labelStyle: const TextStyle(color: Colors.white),
+                icon: Image.asset(
+                  'assets/icons/icon.png',
+                  width: 50.0,
+                  height: 50.0,
+                ),
+                enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Colors.white,
                     width: 2.0,
                   ),
                 ),
-                border: OutlineInputBorder(
+                border: const OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Colors.white,
                     width: 2.0,
