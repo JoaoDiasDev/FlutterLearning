@@ -1,0 +1,7 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/linux",
+    "cmake.configureOnOpen": false,
+    "cSpell.words": [
+        "sqflite"
+    ]
+}
